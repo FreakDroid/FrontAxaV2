@@ -34,7 +34,7 @@ export class GnomeModel {
             });
         }).catch( err => {
             this.showError = true;
-            this.errorMessage = err;
+            this.errorMessage = "Error loading gnomes";
         });
     }
 

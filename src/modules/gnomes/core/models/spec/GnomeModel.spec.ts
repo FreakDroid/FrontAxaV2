@@ -21,6 +21,8 @@ describe("model: GnomeModel", () => {
                 "professions" : [ "Metalworker"],
                 "friends" : [ "Cogwitz Chillwidget", "Tinadette Chillbuster" ]
             } ];
+
+        const error: string = "Error loading gnomes";
         
         beforeEach(inject($http => {
             $h = $http;
@@ -28,6 +30,8 @@ describe("model: GnomeModel", () => {
             service = new GnomesService($http);
             gnomeModel = new GnomeModel(service);    
             gnomeModel.showMe = false;
+            gnomeModel.errorMessage = "";
+            gnomeModel.showError = false;
         }));        
 
         it("should be available and executed the load", () => {
@@ -52,6 +56,17 @@ describe("model: GnomeModel", () => {
             gnomeModel.GnomeDetails(0);
             expect(gnomeModel.GnomeDetails).toHaveBeenCalled(); 
             expect(gnomeModel.showMe).toBe(true);
+        });
+
+        it("should be data loaded", () => { 
+            gnomeModel.Load = jasmine.createSpy("Load").and.callFake(() => {
+                gnomeModel.errorMessage = "Error loading gnomes";
+                gnomeModel.showError = true;
+            });
+            gnomeModel.Load();
+            expect(gnomeModel.Load).toHaveBeenCalled(); 
+            expect(gnomeModel.showError).toBe(true);
+            expect(gnomeModel.errorMessage).toBe(error);
         });
     });
 });

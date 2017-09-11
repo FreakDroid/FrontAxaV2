@@ -19,7 +19,7 @@ export class GnomeContentComponent implements ng.IComponentOptions {
         </table>
         </div>
         </section>
-        <section ng-show="GnomeDetails.showError" class="title error">
+        <section ng-show="$ctrl.model.showError" class="title error">
             <h1>{{$ctrl.model.errorMessage}}</h1>
         </section>
     </div>`;

@@ -25,12 +25,6 @@ describe("Component GnomeContentComponent", () => {
         expect(vm.model).toBe(contentModelMock);
     });
 
-
-    // expect(directiveTest.element.find("i").hasClass("starred")).toBe(false);
-    // vm.toggle();
-    // directiveTest.scope.$digest();
-    // expect(directiveTest.element.find("i").hasClass("starred")).toBe(true);
-
     describe("should be called the show details", () => {
         it("should call the event to fill the detail for any gnome", () => {
             var vm: GnomeContentController = directiveTest.createComponent({});

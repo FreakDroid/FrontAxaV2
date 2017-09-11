@@ -16,7 +16,7 @@ Then it will automatically open the app in your browser
 
 ## Testing
 
-To run tests
+To run test
 
 ```sh
 npm test
